@@ -7,7 +7,6 @@ import yandex.practicum.model.TaskStatus;
 import yandex.practicum.tracker.service.ITaskManager;
 import yandex.practicum.tracker.service.InMemoryTaskManager;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,11 +44,11 @@ public class Main {
         Subtask createdSubtaskTwo = taskManager.createSubtask(subtaskTwo);
         Subtask createdSubtaskThree = taskManager.createSubtask(subtaskThree);
 
-        subtaskOne.setEpic(createdEpicOne.getId());
-        subtaskTwo.setEpic(createdEpicOne.getId());
-        subtaskThree.setEpic(createdEpicTwo.getId());
+        subtaskOne.setEpicId(createdEpicOne.getId());
+        subtaskTwo.setEpicId(createdEpicOne.getId());
+        subtaskThree.setEpicId(createdEpicTwo.getId());
         Subtask createdSubtaskFour = taskManager.createSubtask(subtaskFour);
-        subtaskFour.setEpic(createdEpicOne.getId());
+        subtaskFour.setEpicId(createdEpicOne.getId());
 
         createdEpicOne.setSubtasks(new ArrayList<>(List.of(createdSubtaskOne.getId(), createdSubtaskTwo.getId())));
         createdEpicTwo.setSubtasks(new ArrayList<>(List.of(createdSubtaskThree.getId())));

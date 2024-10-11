@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d88fcdf9-5af1-43fb-859c-bc8c3891a273" name="Changes" comment="спринт 5">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/IHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/IHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/model/EpicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/model/EpicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,21 +29,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Wabama322"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Wabama322&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Wabama322/java-kanban.git",
-    "accountId": "d069189b-7d77-427a-bd07-c26fb96d5d74"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Wabama322/java-kanban.git&quot;,
+    &quot;accountId&quot;: &quot;d069189b-7d77-427a-bd07-c26fb96d5d74&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2n1dZwiYWQFROxcWfTPf5jONbvC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,12 +51,108 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.InMemoryHistoryManagerTest.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.clearHistory.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.executor": "Run",
+    "JUnit.yandex.practicum in test.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "sprint__6-solution",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/1/first-project/Проекты/Контрольные/Спринт 5/6/java-kanban-main/src"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.InMemoryTaskManagerTest.clearHistory">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.Main" />
+      <module name="java-kanban-main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryHistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryHistoryManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryTaskManagerTest.clearHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
+      <option name="METHOD_NAME" value="clearHistory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
+      <option name="METHOD_NAME" value="deleteEpicAndSubtaskHistory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.InMemoryTaskManagerTest.clearHistory" />
+        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,5 +176,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="спринт 5" />
     <option name="LAST_COMMIT_MESSAGE" value="спринт 5" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="listeners" />
+        <watch expression="listeners" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
