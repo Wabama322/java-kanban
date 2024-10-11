@@ -16,6 +16,13 @@ public class InMemoryTaskManager implements ITaskManager {
     private final Map<Integer, Subtask> subtasks;
     private final IHistoryManager historyManager;
 
+    public InMemoryTaskManager(IHistoryManager historyManager) {
+        this.historyManager = historyManager;
+        this.tasks = new HashMap<>();
+        this.epics = new HashMap<>();
+        this.subtasks = new HashMap<>();
+    }
+
     public static int count = 0;
 
     public InMemoryTaskManager() {
@@ -103,7 +110,7 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public Subtask createSubtask(Subtask subtask) {
-        Epic epic = epics.get(subtask.getEpic());
+        Epic epic = epics.get(subtask.getEpicId());
         if (epic != null) {
             int id = generateId();
             subtask.setId(id);
@@ -132,7 +139,7 @@ public class InMemoryTaskManager implements ITaskManager {
     public void updateSubtask(Subtask subtask) {
         if (subtasks.containsKey(subtask.getId())) {
             subtasks.put(subtask.getId(), subtask);
-            Epic epic = epics.get(subtask.getEpic());
+            Epic epic = epics.get(subtask.getEpicId());
             changeEpicStatus(epic);
         }
     }
@@ -140,6 +147,7 @@ public class InMemoryTaskManager implements ITaskManager {
     @Override
     public void removeTaskById(int id) {
         tasks.remove(id);
+        historyManager.remove(id);
     }
 
     @Override
@@ -148,18 +156,21 @@ public class InMemoryTaskManager implements ITaskManager {
         List<Integer> epicSubtasks = epic.getSubtasks();
         for (Integer subtask : epicSubtasks) {
             subtasks.remove(subtask);
+            historyManager.remove(subtask);
         }
         epics.remove(id);
+        historyManager.remove(id);
     }
 
     @Override
     public void removeSubtaskById(int id) {
         Subtask subtask = subtasks.remove(id);
         if (subtask != null) {
-            Epic epic = epics.get(subtask.getEpic());
+            Epic epic = epics.get(subtask.getEpicId());
             List<Integer> epicSubtasks = epic.getSubtasks();
             epicSubtasks.remove((Integer) id);
             changeEpicStatus(epic);
+            historyManager.remove(id);
         }
     }
 
