@@ -1,6 +1,7 @@
 package yandex.practicum.model;
 
 public class Subtask extends Task {
+
     private int epicId;
 
     public Subtask(String nameTask, String description, int id, TaskStatus status, int epicId) {
@@ -10,8 +11,6 @@ public class Subtask extends Task {
 
     public Subtask() {
     }
-
-
 
     public int getEpicId() {
         return this.epicId;

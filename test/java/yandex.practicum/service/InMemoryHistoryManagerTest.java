@@ -57,4 +57,3 @@ class InMemoryHistoryManagerTest {
         assertEquals(historyManager.getHistory(), List.of(taskOne, epicOne));
     }
 }
-
