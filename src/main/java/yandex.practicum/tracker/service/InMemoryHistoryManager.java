@@ -23,15 +23,16 @@ public class InMemoryHistoryManager implements IHistoryManager {
     Node first;
     Node last;
 
+
     @Override
     public void add(Task task) {
-        Node node = history.get(task.getId());
-        if (node != null) {
-            removeNode(node);
+        if (history.containsKey(task.getId())) {
+            remove(task.getId());
         }
         linkLast(task);
         history.put(task.getId(), last);
     }
+
 
     @Override
     public void remove(int id) {
@@ -58,33 +59,30 @@ public class InMemoryHistoryManager implements IHistoryManager {
     }
 
     private void linkLast(Task task) {
-        final Node currentNodeLast = last;
-        final Node newNode = new Node(currentNodeLast, task, null);
-        last = newNode;
-        if (currentNodeLast == null) {
+        final Node newNode = new Node(last, task, null);
+        if (last == null) {
             first = newNode;
         } else {
-            currentNodeLast.next = newNode;
-            newNode.prev = currentNodeLast;
+            last.next = newNode;
+            newNode.prev = last;
         }
+        last = newNode;
     }
 
     private void removeNode(Node node) {
-        if (node.prev != null && node.next != null) {
-            if (node.prev.next != null) {
-                node.prev.next = node.next;
-                node.next.prev = node.prev;
-            }
-        } else if (node.next == null && node.prev != null) {
-            if (node.prev.next != null) {
-                node.prev.next = null;
-            }
-            last = node.prev;
-        } else if (node.prev == null && node.next != null) {
-            if (node.next.prev != null) {
+        if (node.prev == null) {
+            if (node.next != null) {
                 node.next.prev = null;
             }
             first = node.next;
+        } else if (node.next == null) {
+            if (node.prev != null) {
+                node.prev.next = null;
+            }
+            last = node.prev;
+        } else {
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
         }
         history.remove(node.item.getId());
         if (history.isEmpty()) {
