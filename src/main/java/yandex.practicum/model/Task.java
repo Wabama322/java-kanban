@@ -8,12 +8,14 @@ public class Task {
     private String description;
     private int id;
     private TaskStatus status;
+    private Types type;
 
     public Task(String nameTask, String description, int id, TaskStatus status) {
         this.nameTask = nameTask;
         this.description = description;
         this.id = id;
         this.status = status;
+        setType();
     }
 
     public Task() {
@@ -30,6 +32,8 @@ public class Task {
     public int getId() {
         return id;
     }
+
+
 
     public TaskStatus getStatus() {
         return status;
@@ -51,6 +55,18 @@ public class Task {
         this.status = status;
     }
 
+    public Types getType() {
+        return type;
+    }
+
+    private void setType() {
+        for (Types type : Types.values()) {
+            if(this.getClass().equals(type.getType())) {
+                this.type = type;
+            }
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,12 +82,9 @@ public class Task {
 
     @Override
     public String toString() {
-        return "src.yandex.practicum.model.Task{" +
-                "name='" + nameTask + '\'' +
-                ", description='" + description + '\'' +
-                ", id=" + id +
-                ", status=" + status +
-                '}';
+        return id + "," + type.name() + "," + nameTask + ","
+                + status.name() + "," + description + ",";
+
     }
 }
 

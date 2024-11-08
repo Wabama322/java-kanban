@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class InMemoryTaskManager implements ITaskManager {
-    private final Map<Integer, Task> tasks;
-    private final Map<Integer, Epic> epics;
-    private final Map<Integer, Subtask> subtasks;
-    private final IHistoryManager historyManager;
+    protected final Map<Integer, Task> tasks;
+    protected final Map<Integer, Epic> epics;
+    protected final Map<Integer, Subtask> subtasks;
+    protected final IHistoryManager historyManager;
 
     public InMemoryTaskManager(IHistoryManager historyManager) {
         this.historyManager = historyManager;

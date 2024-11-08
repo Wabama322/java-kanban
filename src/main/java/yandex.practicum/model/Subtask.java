@@ -12,6 +12,10 @@ public class Subtask extends Task {
     public Subtask() {
     }
 
+    public static String name() {
+        return null;
+    }
+
     public int getEpicId() {
         return this.epicId;
     }

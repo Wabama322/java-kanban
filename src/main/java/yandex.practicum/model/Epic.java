@@ -14,6 +14,10 @@ public class Epic extends Task {
 
     }
 
+    public static String name() {
+        return null;
+    }
+
     public List<Integer> getSubtasks() {
         return subtasks;
     }
