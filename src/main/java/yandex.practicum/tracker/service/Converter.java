@@ -1,14 +1,8 @@
 package yandex.practicum.tracker.service;
 
-import yandex.practicum.model.Epic;
-import yandex.practicum.model.Subtask;
-import yandex.practicum.model.Task;
-import yandex.practicum.model.TaskStatus;
+import yandex.practicum.model.*;
 
 import java.util.ArrayList;
-
-import static yandex.practicum.model.Types.EPIC;
-import static yandex.practicum.model.Types.SUBTASK;
 
 public class Converter {
     public static Task fromStringToTask(String value) {
@@ -18,19 +12,27 @@ public class Converter {
         String type = taskLines[1];
         TaskStatus status = TaskStatus.valueOf(taskLines[3]);
         String description = taskLines[4];
-        if (type.equals(EPIC.name())) {
+        if (type.equals("EPIC")) {
             return new Epic(name, description, id, status, new ArrayList<>());
-        } else if (type.equals(SUBTASK.name())) {
-            int epic = Integer.parseInt(taskLines[5]);
-            return new Subtask(name, description, id, status, epic);
+        } else if (type.equals("SUBTASK") && taskLines.length >= 6) {
+            int epicId = Integer.parseInt(taskLines[5].trim());
+            return new Subtask(name, description, id, status, epicId);
         } else {
             return new Task(name, description, id, status);
         }
     }
-    public static String taskToString(Task task) {
-        return task.getId() + "," + task.getType() + "," + task.getName()
-                + "," + task.getStatus() + "," + task.getDescription() + ","
-                + task.getEpicId() + "\n";
 
+    public static String taskToString(Task task) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(task.getId()).append(",");
+        builder.append(task.getType()).append(",");
+        builder.append(task.getName()).append(",");
+        builder.append(task.getStatus()).append(",");
+        builder.append(task.getDescription());
+        if (task.getType() == Types.SUBTASK) {
+            builder.append(",").append(((Subtask) task).getEpicId());
+        }
+        builder.append("\n");
+        return builder.toString();
     }
 }

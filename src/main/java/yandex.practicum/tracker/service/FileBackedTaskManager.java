@@ -126,25 +126,21 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 Task task = Converter.fromStringToTask(line);
                 if (task.getType().equals(TASK)) {
                     tasks.put(task.getId(), task);
-                    if (task.getId() > maxId) {
-                        maxId = task.getId();
-                    }
                 } else if (task.getType().equals(EPIC)) {
                     epics.put(task.getId(), (Epic) task);
-                    if (task.getId() > maxId) {
-                        maxId = task.getId();
-                    }
                 } else {
                     Subtask subtask = (Subtask) task;
                     subtasks.put(task.getId(), subtask);
                     Epic epic = epics.get(subtask.getEpicId());
                     epic.getSubtasks().add(subtask.getId());
-                    if (subtask.getId() > maxId) {
-                        maxId = subtask.getId();
-                    }
+                }
+
+                if (task.getId() > maxId) {
+                    maxId = task.getId();
                 }
                 count = maxId;
             }
+
         } catch (FileNotFoundException e) {
             throw new SaveManagerException("Файл не найден...");
         } catch (IOException e) {
@@ -152,6 +148,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         }
     }
 }
+
 
 
 
