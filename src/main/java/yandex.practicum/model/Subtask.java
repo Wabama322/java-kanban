@@ -12,15 +12,17 @@ public class Subtask extends Task {
     public Subtask() {
     }
 
-    public static String name() {
-        return null;
-    }
-
     public int getEpicId() {
         return this.epicId;
     }
 
     public void setEpicId(int epicId) {
         this.epicId = epicId;
+    }
+
+
+    @Override
+    public Types getType() {
+        return Types.SUBTASK;
     }
 }

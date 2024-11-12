@@ -1,19 +1,19 @@
 package yandex.practicum.tracker.service;
 
-import yandex.practicum.model.Task;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
+import yandex.practicum.model.Task;
 import yandex.practicum.model.TaskStatus;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class InMemoryTaskManager implements ITaskManager {
-    protected final Map<Integer, Task> tasks;
-    protected final Map<Integer, Epic> epics;
-    protected final Map<Integer, Subtask> subtasks;
+    protected  final Map<Integer, Task> tasks;
+    protected  final Map<Integer, Epic> epics;
+    protected  final Map<Integer, Subtask> subtasks;
     protected final IHistoryManager historyManager;
 
     public InMemoryTaskManager(IHistoryManager historyManager) {
@@ -23,7 +23,7 @@ public class InMemoryTaskManager implements ITaskManager {
         this.subtasks = new HashMap<>();
     }
 
-    public static int count = 0;
+    protected int count = 0;
 
     public InMemoryTaskManager() {
         this.historyManager = Managers.getDefaultHistory();
@@ -137,7 +137,7 @@ public class InMemoryTaskManager implements ITaskManager {
     }
 
     @Override
-    public void updateTask(Task task) { //обновление Таска
+    public void updateTask(Task task) {
         tasks.put(task.getId(), task);
     }
 

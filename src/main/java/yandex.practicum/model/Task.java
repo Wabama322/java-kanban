@@ -15,10 +15,11 @@ public class Task {
         this.description = description;
         this.id = id;
         this.status = status;
-        setType();
+        this.type = Types.TASK;
     }
 
     public Task() {
+        this.type = Types.TASK;
     }
 
     public String getName() {
@@ -34,7 +35,6 @@ public class Task {
     }
 
 
-
     public TaskStatus getStatus() {
         return status;
     }
@@ -46,6 +46,9 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+    public int getEpicId() {
+        return 0;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -56,15 +59,11 @@ public class Task {
     }
 
     public Types getType() {
-        return type;
+        return Types.TASK;
     }
 
-    private void setType() {
-        for (Types type : Types.values()) {
-            if(this.getClass().equals(type.getType())) {
-                this.type = type;
-            }
-        }
+    public void setType(Types type) {
+        this.type = type;
     }
 
     @Override

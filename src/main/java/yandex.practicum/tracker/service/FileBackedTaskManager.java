@@ -4,14 +4,13 @@ import yandex.practicum.exception.SaveManagerException;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
-import yandex.practicum.model.TaskStatus;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
-import static yandex.practicum.model.Types.*;
+import static yandex.practicum.model.Types.EPIC;
+import static yandex.practicum.model.Types.TASK;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
     private Path file;
@@ -20,6 +19,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         super();
         this.file = file;
     }
+
 
     @Override
     public Task createTask(Task task) {
@@ -96,41 +96,26 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         save();
     }
 
-    private void save() {
+    public void save() {
+        final String HEADER = "id, type, name, status, description, epic\n";
         try (FileWriter writer = new FileWriter(file.toFile(), false)) {
-            writer.write("id, type, name, status, description, epic\n");
+            writer.write(HEADER);
             for (Integer key : tasks.keySet()) {
-                writer.write(tasks.get(key).toString() + "\n");
+                writer.write(Converter.taskToString(tasks.get(key)));
             }
             for (Integer key : epics.keySet()) {
-                writer.write(epics.get(key).toString() + "\n");
+                writer.write(Converter.taskToString(epics.get(key)));
             }
             for (Integer key : subtasks.keySet()) {
-                writer.write(subtasks.get(key).toString() + "\n");
+                writer.write(Converter.taskToString(subtasks.get(key)));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e); // заменить название
-        }
-    }
-
-    private static Task fromString(String value) {
-        String[] taskLines = value.split(",", 6);
-        int id = Integer.parseInt(taskLines[0]);
-        String name = taskLines[2];
-        String type = taskLines[1];
-        TaskStatus status = TaskStatus.valueOf(taskLines[3]);
-        String description = taskLines[4];
-        if (type.equals(EPIC.name())) {
-            return new Epic(name, description, id, status, new ArrayList<>());
-        } else if (type.equals(SUBTASK.name())) {
-            int epic = Integer.parseInt(taskLines[5]);
-            return new Subtask(name, description, id, status, epic);
-        } else {
-            return new Task(name, description, id, status);
+            throw new RuntimeException(e);
         }
     }
 
     public void loadFromFile(File file) {
+        int maxId = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(file.toString()))) {
             reader.readLine();
             while (true) {
@@ -138,23 +123,36 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 if (isNull(line) || line.isEmpty()) {
                     break;
                 }
-                Task task = fromString(line);
+                Task task = Converter.fromStringToTask(line);
                 if (task.getType().equals(TASK)) {
                     tasks.put(task.getId(), task);
+                    if (task.getId() > maxId) {
+                        maxId = task.getId();
+                    }
                 } else if (task.getType().equals(EPIC)) {
                     epics.put(task.getId(), (Epic) task);
+                    if (task.getId() > maxId) {
+                        maxId = task.getId();
+                    }
                 } else {
                     Subtask subtask = (Subtask) task;
                     subtasks.put(task.getId(), subtask);
                     Epic epic = epics.get(subtask.getEpicId());
                     epic.getSubtasks().add(subtask.getId());
+                    if (subtask.getId() > maxId) {
+                        maxId = subtask.getId();
+                    }
                 }
-                count += 1;
+                count = maxId;
             }
         } catch (FileNotFoundException e) {
-            throw new SaveManagerException("Файфл не найден...");
+            throw new SaveManagerException("Файл не найден...");
         } catch (IOException e) {
             throw new SaveManagerException("Ошибка чтения файла...");
         }
     }
 }
+
+
+
+
