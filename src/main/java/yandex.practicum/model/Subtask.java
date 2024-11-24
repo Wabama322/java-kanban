@@ -1,22 +1,28 @@
 package yandex.practicum.model;
 
 public class Subtask extends Task {
-    private Integer epic;
 
-    public Subtask(String nameTask, String description, int id, TaskStatus status, Integer epic) {
+    private int epicId;
+
+    public Subtask(String nameTask, String description, int id, TaskStatus status, int epicId) {
         super(nameTask, description, id, status);
-        this.epic = epic;
+        this.epicId = epicId;
     }
 
     public Subtask() {
-
     }
 
-    public Integer getEpic() {
-        return epic;
+    public int getEpicId() {
+        return this.epicId;
     }
 
-    public void setEpic(Integer epic) {
-        this.epic = epic;
+    public void setEpicId(int epicId) {
+        this.epicId = epicId;
+    }
+
+
+    @Override
+    public Types getType() {
+        return Types.SUBTASK;
     }
 }
