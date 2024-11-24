@@ -11,7 +11,6 @@ public class Epic extends Task {
     }
 
     public Epic() {
-
     }
 
     public List<Integer> getSubtasks() {
@@ -20,6 +19,11 @@ public class Epic extends Task {
 
     public void setSubtasks(List<Integer> subtasks) {
         this.subtasks = subtasks;
+    }
+
+    @Override
+    public Types getType() {
+        return Types.EPIC;
     }
 }
 

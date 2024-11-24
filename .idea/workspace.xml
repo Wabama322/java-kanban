@@ -4,27 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d88fcdf9-5af1-43fb-859c-bc8c3891a273" name="Changes" comment="спринт 5">
+    <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="6 спринт исправление замечаний по удалению из истории">
+      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/exception/SaveManagerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Types.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Epic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/IHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/IHistoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/model/EpicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/model/EpicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sprint_6-solution" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,16 +41,29 @@
     &quot;assignee&quot;: &quot;Wabama322&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOMgD5bs5-Wms-&quot;,
+        &quot;number&quot;: 1
+      },
+      &quot;lastSeen&quot;: 1728812452260
+    }
+  ]
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Wabama322/java-kanban.git&quot;,
     &quot;accountId&quot;: &quot;d069189b-7d77-427a-bd07-c26fb96d5d74&quot;
-  }
+  },
+  &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2n1dZwiYWQFROxcWfTPf5jONbvC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,22 +71,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.EpicTest.executor": "Run",
+    "JUnit.InMemoryHistoryManagerTest.addToHistory.executor": "Run",
     "JUnit.InMemoryHistoryManagerTest.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.clearHistory.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory.executor": "Run",
+    "JUnit.InMemoryHistoryManagerTest.removeFirstHistory.executor": "Run",
+    "JUnit.InMemoryHistoryManagerTest.removeLastHistory.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.executor": "Run",
-    "JUnit.yandex.practicum in test.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
+    "JUnit.ManagersTest.executor": "Run",
+    "JUnit.SubtaskTest.executor": "Run",
+    "JUnit.TaskTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sprint__6-solution",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/1/first-project/Проекты/Контрольные/Спринт 5/6/java-kanban-main/src"
+    "git-widget-placeholder": "sprint__7-solution-in-file-manager",
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.InMemoryTaskManagerTest.clearHistory">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="yandex.practicum.Main" />
       <module name="java-kanban-main" />
@@ -111,7 +129,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.clearHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ManagersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
         <pattern>
@@ -120,69 +138,112 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="clearHistory" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.ManagersTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="PATTERN" value="yandex.practicum.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="deleteEpicAndSubtaskHistory" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="yandex.practicum.model" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.model.TaskTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.clearHistory" />
-        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" />
+        <item itemvalue="JUnit.ManagersTest" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
+        <item itemvalue="JUnit.TaskTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d88fcdf9-5af1-43fb-859c-bc8c3891a273" name="Changes" comment="" />
-      <created>1728144574434</created>
+      <changelist id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="" />
+      <created>1728663312393</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1728144574434</updated>
+      <updated>1728663312393</updated>
     </task>
-    <task id="LOCAL-00001" summary="спринт 5">
+    <task id="LOCAL-00001" summary="5 спринт новый коммит">
       <option name="closed" value="true" />
-      <created>1728144668896</created>
+      <created>1728810451517</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1728144668896</updated>
+      <updated>1728810451517</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="6 спринт исправление замечаний ревью.">
+      <option name="closed" value="true" />
+      <created>1728927627675</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728927627675</updated>
+    </task>
+    <task id="LOCAL-00003" summary="6 спринт исправление замечаний по удалению из истории">
+      <option name="closed" value="true" />
+      <created>1729011269902</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729011269902</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="спринт 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="спринт 5" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="103afb11-3e5b-478d-bd20-bc51f5cbae8b" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="103afb11-3e5b-478d-bd20-bc51f5cbae8b">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="range">
+                    <value>
+                      <list>
+                        <option value="origin/master..origin/sprint_6-solution" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="listeners" />
-        <watch expression="listeners" />
-      </configuration>
-    </watches-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="5 спринт новый коммит" />
+    <MESSAGE value="6 спринт исправление замечаний ревью." />
+    <MESSAGE value="6 спринт исправление замечаний по удалению из истории" />
+    <option name="LAST_COMMIT_MESSAGE" value="6 спринт исправление замечаний по удалению из истории" />
   </component>
 </project>
