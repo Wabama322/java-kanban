@@ -1,35 +1,30 @@
 package yandex.practicum.tracker.service;
 
+import yandex.practicum.exception.TaskValidationException;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
 import yandex.practicum.model.TaskStatus;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class InMemoryTaskManager implements ITaskManager {
-    protected  final Map<Integer, Task> tasks;
-    protected  final Map<Integer, Epic> epics;
-    protected  final Map<Integer, Subtask> subtasks;
+    protected final Map<Integer, Task> tasks;
+    public final Map<Integer, Epic> epics;
+    protected final Map<Integer, Subtask> subtasks;
     protected final IHistoryManager historyManager;
-
-    public InMemoryTaskManager(IHistoryManager historyManager) {
-        this.historyManager = historyManager;
-        this.tasks = new HashMap<>();
-        this.epics = new HashMap<>();
-        this.subtasks = new HashMap<>();
-    }
+    protected final TreeSet<Task> sortedTasks;
 
     protected int count = 0;
 
     public InMemoryTaskManager() {
-        this.historyManager = Managers.getDefaultHistory();
+        this.historyManager = new InMemoryHistoryManager();
         tasks = new HashMap<>();
         epics = new HashMap<>();
         subtasks = new HashMap<>();
+        this.sortedTasks = new TreeSet<>();
     }
 
     @Override
@@ -237,5 +232,69 @@ public class InMemoryTaskManager implements ITaskManager {
 
     private int generateId() {
         return count++;
+    }
+
+    public Duration getDuration(Epic epic) {
+        List<Subtask> subtasks1 = getSubtaskList(epic);
+        Duration totalDuration = Duration.ofMinutes(0);
+        for (Subtask subtask : subtasks1) {
+            if (subtask.getDuration() != null) {
+                totalDuration = totalDuration.plus(subtask.getDuration());
+            }
+        }
+        return totalDuration;
+    }
+
+    public LocalDateTime getStartTime(Epic epic) {
+        List<Subtask> subtasks2 = getSubtaskList(epic);
+        LocalDateTime startTime = null;
+        for (Subtask subtask : subtasks2) {
+            LocalDateTime currentStartTime = subtask.getStartTime();
+            if (startTime != null || currentStartTime.isBefore(startTime)) {
+                startTime = currentStartTime;
+            }
+        }
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime(Epic epic) {
+        Duration duration = epic.getDuration();
+        LocalDateTime startTime = epic.getStartTime();
+        if (startTime == null) {
+            return null;
+        }
+        LocalDateTime endTime = startTime.plus(duration);
+        return endTime;
+    }
+
+    @Override
+    public TreeSet<Task> getPrioritizedTasks() {
+        return sortedTasks;
+    }
+
+    private void updateSortedTasks() {
+        List<Task> allTasks = getAllTasks();
+        List<Subtask> allSubtasks = getAllSubtasks();
+        allTasks.addAll(allSubtasks);
+        List<Task> tasksStartTime = allTasks.stream()
+                .filter(task -> task.getStartTime() != null)
+                .toList();
+        sortedTasks.addAll(tasksStartTime);
+    }
+
+    private void validateTaskStartTime(Task task) {
+        if (task.getStartTime() == null) {
+            return;
+        }
+        boolean anyMatch = sortedTasks.stream()
+                .anyMatch(task1 -> {
+                    LocalDateTime startTime = task.getStartTime();
+                    LocalDateTime endTime = startTime.plus(task.getDuration());
+                    return !endTime.isBefore(task1.getStartTime())
+                            || startTime.isAfter(task1.getStartTime().plus(task1.getDuration()));
+                });
+        if (anyMatch) {
+            throw new TaskValidationException("Обнаружено пересечение времени задач...");
+        }
     }
 }

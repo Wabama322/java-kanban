@@ -5,6 +5,7 @@ import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
 
 import java.util.List;
+import java.util.TreeSet;
 
 public interface ITaskManager {
 
@@ -49,4 +50,6 @@ public interface ITaskManager {
     void changeEpicStatus(Epic epic);
 
     List<Task> getHistory();
+
+    TreeSet<Task> getPrioritizedTasks();
 }

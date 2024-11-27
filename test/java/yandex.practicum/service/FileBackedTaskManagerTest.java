@@ -12,6 +12,9 @@ import yandex.practicum.tracker.service.FileBackedTaskManager;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,13 +92,16 @@ class FileBackedTaskManagerTest {
     }
 
     private void createTasks() {
-        Task taskOne = new Task("TaskOne", "DescrTaskOne", 1, NEW);
-        Task taskTwo = new Task("TaskTwo", "DescrTaskTwo", 2, NEW);
+        Task taskOne = new Task("TaskOne", "DescrTaskOne", 1, NEW, LocalDateTime.now(),
+                Duration.ofMinutes(120));
+        Task taskTwo = new Task("TaskTwo", "DescrTaskTwo", 2, NEW, LocalDateTime.of(2024, Month.NOVEMBER, 25, 12, 0),
+                Duration.ofMinutes(60));
 
         Epic epicOne = new Epic("EpicOne", "DescrEpicOne", 3, IN_PROGRESS, new ArrayList<>());
         fileManager.createEpic(epicOne);
         List<Epic> allEpics = fileManager.getAllEpics();
-        Subtask subtaskOne = new Subtask("SubtaskOne", "DescrSubOne", 5, NEW, allEpics.get(0).getId());
+        Subtask subtaskOne = new Subtask("SubtaskOne", "DescrSubOne", 5, NEW, allEpics.get(0).getId(),
+                LocalDateTime.of(2024, Month.NOVEMBER, 20, 12, 0), Duration.ofMinutes(30));
 
         fileManager.createTask(taskOne);
         fileManager.createTask(taskTwo);

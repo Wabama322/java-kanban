@@ -18,9 +18,9 @@ class InMemoryHistoryManagerTest {
     IHistoryManager historyManager = Managers.getDefaultHistory();
     ITaskManager taskManager = Managers.getDefault();
 
-    Task taskOne = taskManager.createTask(new Task("nameTaskOne", "description", 0, TaskStatus.DONE));
-    Task taskTwo = taskManager.createTask(new Task("nameTaskTwo", "description", 0, TaskStatus.NEW));
-    Epic epicOne = taskManager.createEpic(new Epic("nameEpicOne", "description", 0, TaskStatus.NEW, new ArrayList<>()));
+    Task taskOne = taskManager.createTask(new Task("TaskOne", "DescrTaskOne", 0, TaskStatus.DONE));
+    Task taskTwo = taskManager.createTask(new Task("TaskTwo", "DescrTaskTwo", 0, TaskStatus.NEW));
+    Epic epicOne = taskManager.createEpic(new Epic("EpicOne", "DescrEpicOne", 0, TaskStatus.NEW, new ArrayList<>()));
 
     @Test
     public void addToHistory() {
