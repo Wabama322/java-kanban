@@ -1,6 +1,6 @@
 package yandex.practicum.tracker.service;
 
-import yandex.practicum.exception.SaveManagerException;
+import yandex.practicum.exception.LoadFromFileException;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
@@ -12,52 +12,17 @@ import static java.util.Objects.isNull;
 import static yandex.practicum.model.Types.EPIC;
 import static yandex.practicum.model.Types.TASK;
 
-public class FileBackedTaskManager extends InMemoryTaskManager {
+public class FileBackedTaskManager extends InMemoryTaskManager implements ITaskManager {
     private Path file;
+    InMemoryTaskManager taskManager = new InMemoryTaskManager();
 
     public FileBackedTaskManager(Path file) {
         super();
         this.file = file;
     }
 
-
-    @Override
-    public Task createTask(Task task) {
-        super.createTask(task);
-        save();
-        return task;
-    }
-
-    @Override
-    public Epic createEpic(Epic epic) {
-        super.createEpic(epic);
-        save();
-        return epic;
-    }
-
-    @Override
-    public Subtask createSubtask(Subtask subtask) {
-        super.createSubtask(subtask);
-        save();
-        return subtask;
-    }
-
-    @Override
-    public void removeTaskById(int id) {
-        super.removeTaskById(id);
-        save();
-    }
-
-    @Override
-    public void removeEpicById(int id) {
-        super.removeEpicById(id);
-        save();
-    }
-
-    @Override
-    public void removeSubtaskById(int id) {
-        super.removeSubtaskById(id);
-        save();
+    public FileBackedTaskManager() {
+        super();
     }
 
     @Override
@@ -79,6 +44,27 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     }
 
     @Override
+    public Task createTask(Task task) {
+        Task task1 = super.createTask(task);
+        save();
+        return task1;
+    }
+
+    @Override
+    public Epic createEpic(Epic epic) {
+        Epic epic1 = super.createEpic(epic);
+        save();
+        return epic1;
+    }
+
+    @Override
+    public Subtask createSubtask(Subtask subtask) {
+        Subtask subtask1 = super.createSubtask(subtask);
+        save();
+        return subtask1;
+    }
+
+    @Override
     public void updateTask(Task task) {
         super.updateTask(task);
         save();
@@ -96,18 +82,35 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         save();
     }
 
+    @Override
+    public void removeTaskById(int id) {
+        super.removeTaskById(id);
+        save();
+    }
+
+    @Override
+    public void removeEpicById(int id) {
+        super.removeEpicById(id);
+        save();
+    }
+
+    @Override
+    public void removeSubtaskById(int id) {
+        super.removeSubtaskById(id);
+        save();
+    }
+
     public void save() {
-        final String HEADER = "id, type, name, status, description, epic\n";
         try (FileWriter writer = new FileWriter(file.toFile(), false)) {
-            writer.write(HEADER);
+            writer.write("id,type,name,status,description,duration,startTime,epic, endTime\n");
             for (Integer key : tasks.keySet()) {
-                writer.write(Converter.taskToString(tasks.get(key)));
+                writer.write(Converter.taskToString(tasks.get(key)) + "\n");
             }
             for (Integer key : epics.keySet()) {
-                writer.write(Converter.taskToString(epics.get(key)));
+                writer.write(Converter.taskToString(epics.get(key)) + "\n");
             }
             for (Integer key : subtasks.keySet()) {
-                writer.write(Converter.taskToString(subtasks.get(key)));
+                writer.write(Converter.taskToString(subtasks.get(key)) + "\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -140,11 +143,10 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 }
                 count = maxId;
             }
-
         } catch (FileNotFoundException e) {
-            throw new SaveManagerException("Файл не найден...");
+            throw new LoadFromFileException("Файл не найден...");
         } catch (IOException e) {
-            throw new SaveManagerException("Ошибка чтения файла...");
+            throw new LoadFromFileException("Ошибка чтения файла...");
         }
     }
 }

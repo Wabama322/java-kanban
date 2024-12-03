@@ -2,7 +2,10 @@ package yandex.practicum.model;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+
+
 
 public class Task implements Comparable {
 
@@ -82,6 +85,13 @@ public class Task implements Comparable {
         return startTime;
     }
 
+    public LocalDateTime getEndTime() {
+        if (startTime == null || duration == null) {
+            throw new IllegalStateException("Время начала и продолжительсноть не заданы...");
+        }
+        return startTime.plus(duration);
+    }
+
     public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
@@ -101,8 +111,8 @@ public class Task implements Comparable {
 
     @Override
     public String toString() {
-        return id + "," + type.name() + "," + nameTask + ","
-                + status.name() + "," + description + ",";
+        return id + "," +  type.name() + "," + nameTask + ","
+                + status.name() + "," + description + ","+ duration + "," + startTime + ",";
     }
 
     @Override

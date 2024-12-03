@@ -15,7 +15,7 @@ public class InMemoryTaskManager implements ITaskManager {
     public final Map<Integer, Epic> epics;
     protected final Map<Integer, Subtask> subtasks;
     protected final IHistoryManager historyManager;
-    protected final TreeSet<Task> sortedTasks;
+    protected final TreeSet<Task> sortedTask;
 
     protected int count = 0;
 
@@ -24,7 +24,7 @@ public class InMemoryTaskManager implements ITaskManager {
         tasks = new HashMap<>();
         epics = new HashMap<>();
         subtasks = new HashMap<>();
-        this.sortedTasks = new TreeSet<>();
+        this.sortedTask = new TreeSet<>(Comparator.comparing(Task::getStartTime));
     }
 
     @Override
@@ -108,6 +108,9 @@ public class InMemoryTaskManager implements ITaskManager {
     public Task createTask(Task task) {
         task.setId(generateId());
         tasks.put(task.getId(), task);
+        if (validateTaskStartTime(task)) {
+            sortedTask.add(task);
+        }
         return task;
     }
 
@@ -120,13 +123,18 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public Subtask createSubtask(Subtask subtask) {
+        validateTaskStartTime(subtask);
         Epic epic = epics.get(subtask.getEpicId());
-        if (epic != null) {
+        if (epic == null) {
             int id = generateId();
             subtask.setId(id);
             subtasks.put(subtask.getId(), subtask);
             epic.getSubtasks().add(subtask.getId());
             changeEpicStatus(epic);
+            epic.setDuration(getEpicDuration(epic));
+            epic.setStartTime(getEpicStartTime(epic));
+            epic.setEndTime(getEpicEndTime(epic));
+            sortedTask.add(subtask);
         }
         return subtask;
     }
@@ -223,7 +231,14 @@ public class InMemoryTaskManager implements ITaskManager {
         } else {
             status = TaskStatus.IN_PROGRESS;
         }
+
         epic.setStatus(status);
+        Duration newDuration = getEpicDuration(epic);
+        epic.setDuration(newDuration);
+        LocalDateTime newStartTime = getEpicStartTime(epic);
+        epic.setStartTime(newStartTime);
+        LocalDateTime newEndTime = getEpicEndTime(epic);
+        epic.setEndTime(newEndTime);
     }
 
     public List<Task> getHistory() {
@@ -234,7 +249,7 @@ public class InMemoryTaskManager implements ITaskManager {
         return count++;
     }
 
-    public Duration getDuration(Epic epic) {
+    public Duration getEpicDuration(Epic epic) {
         List<Subtask> subtasks1 = getSubtaskList(epic);
         Duration totalDuration = Duration.ofMinutes(0);
         for (Subtask subtask : subtasks1) {
@@ -245,7 +260,7 @@ public class InMemoryTaskManager implements ITaskManager {
         return totalDuration;
     }
 
-    public LocalDateTime getStartTime(Epic epic) {
+    public LocalDateTime getEpicStartTime(Epic epic) {
         List<Subtask> subtasks2 = getSubtaskList(epic);
         LocalDateTime startTime = null;
         for (Subtask subtask : subtasks2) {
@@ -257,7 +272,7 @@ public class InMemoryTaskManager implements ITaskManager {
         return startTime;
     }
 
-    public LocalDateTime getEndTime(Epic epic) {
+    public LocalDateTime getEpicEndTime(Epic epic) {
         Duration duration = epic.getDuration();
         LocalDateTime startTime = epic.getStartTime();
         if (startTime == null) {
@@ -269,32 +284,26 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public TreeSet<Task> getPrioritizedTasks() {
-        return sortedTasks;
+        return sortedTask;
     }
 
-    private void updateSortedTasks() {
-        List<Task> allTasks = getAllTasks();
-        List<Subtask> allSubtasks = getAllSubtasks();
-        allTasks.addAll(allSubtasks);
-        List<Task> tasksStartTime = allTasks.stream()
-                .filter(task -> task.getStartTime() != null)
-                .toList();
-        sortedTasks.addAll(tasksStartTime);
-    }
-
-    private void validateTaskStartTime(Task task) {
+    private boolean validateTaskStartTime(Task task) {
         if (task.getStartTime() == null) {
-            return;
+            return false;
         }
-        boolean anyMatch = sortedTasks.stream()
+        boolean anyMatch = sortedTask.stream()
                 .anyMatch(task1 -> {
                     LocalDateTime startTime = task.getStartTime();
-                    LocalDateTime endTime = startTime.plus(task.getDuration());
-                    return !endTime.isBefore(task1.getStartTime())
-                            || startTime.isAfter(task1.getStartTime().plus(task1.getDuration()));
+                    LocalDateTime endTime = task.getEndTime();
+
+                    return !(endTime.isBefore(task1.getStartTime()) || endTime.equals(task1.getStartTime()))
+                            && !(startTime.isAfter(task1.getEndTime()) || startTime.equals(task1.getEndTime()));
                 });
         if (anyMatch) {
             throw new TaskValidationException("Обнаружено пересечение времени задач...");
         }
+        return anyMatch;
     }
 }
+
+

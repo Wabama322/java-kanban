@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="6 спринт исправление замечаний по удалению из истории">
-      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/exception/TaskValidationException.java" afterDir="false" />
+    <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="8 спринт">
+      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/exception/LoadFromFileException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Epic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Epic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Subtask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Subtask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/ITaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/ITaskManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Epic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Subtask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/ITaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/ITaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryHistoryManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,24 +75,33 @@
     "Application.Main.executor": "Run",
     "JUnit.EpicTest.executor": "Run",
     "JUnit.FileBackedTaskManagerTest.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.saveAndLoadOfEmptyFilesTest.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.shouldLoadFewTasks.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.shouldSaveFewTasks.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.shouldSaveOfEmptyThrowException.executor": "Run",
     "JUnit.InMemoryHistoryManagerTest.addToHistory.executor": "Run",
     "JUnit.InMemoryHistoryManagerTest.executor": "Run",
     "JUnit.InMemoryHistoryManagerTest.removeFirstHistory.executor": "Run",
     "JUnit.InMemoryHistoryManagerTest.removeLastHistory.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.clearHistory.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.createSubtaskAndCheckThatItIsNotEmpty.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.executor": "Run",
     "JUnit.ManagersTest.executor": "Run",
     "JUnit.SubtaskTest.executor": "Run",
     "JUnit.TaskTest.executor": "Run",
+    "JUnit.yandex.practicum in test (1).executor": "Run",
+    "JUnit.yandex.practicum in test (2).executor": "Run",
+    "JUnit.yandex.practicum in test (3).executor": "Run",
+    "JUnit.yandex.practicum in test.executor": "Run",
     "JUnit.yandex.practicum.model in test.executor": "Run",
     "JUnit.yandex.practicum.service in test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sprint__8-solution-time-and-duration",
+    "git-widget-placeholder": "#3 on sprint__8-solution-time-and-duration",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.InMemoryTaskManagerTest">
+  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
     <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -108,6 +113,54 @@
       <option name="PACKAGE_NAME" value="yandex.practicum.service" />
       <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.saveAndLoadOfEmptyFilesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="saveAndLoadOfEmptyFilesTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.shouldLoadFewTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="shouldLoadFewTasks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.shouldSaveFewTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="shouldSaveFewTasks" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,59 +180,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.createSubtaskAndCheckThatItIsNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="createSubtaskAndCheckThatItIsNotEmpty" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="deleteEpicAndSubtaskHistory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="yandex.practicum.service in test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
-        <item itemvalue="JUnit.yandex.practicum.service in test" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.createSubtaskAndCheckThatItIsNotEmpty" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.shouldLoadFewTasks" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.shouldSaveFewTasks" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.saveAndLoadOfEmptyFilesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729011269902</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="8 спринт">
+      <option name="closed" value="true" />
+      <created>1732727248034</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732727248034</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +273,18 @@
     <MESSAGE value="5 спринт новый коммит" />
     <MESSAGE value="6 спринт исправление замечаний ревью." />
     <MESSAGE value="6 спринт исправление замечаний по удалению из истории" />
-    <option name="LAST_COMMIT_MESSAGE" value="6 спринт исправление замечаний по удалению из истории" />
+    <MESSAGE value="8 спринт" />
+    <option name="LAST_COMMIT_MESSAGE" value="8 спринт" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
