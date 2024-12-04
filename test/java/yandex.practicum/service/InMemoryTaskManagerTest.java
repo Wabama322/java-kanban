@@ -1,6 +1,5 @@
 package yandex.practicum.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;

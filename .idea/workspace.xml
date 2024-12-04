@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="8 спринт, работа над ошибками 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,7 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.InMemoryTaskManagerTest">
+  <component name="RunManager" selected="JUnit.ManagersTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="yandex.practicum.Main" />
       <module name="java-kanban-main" />
@@ -123,6 +123,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InMemoryHistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryHistoryManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -138,7 +153,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.clearHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ManagersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
         <pattern>
@@ -147,36 +162,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="clearHistory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="deleteEpicAndSubtaskHistory" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.ManagersTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ManagersTest" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.clearHistory" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.deleteEpicAndSubtaskHistory" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733343773579</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="8 спринт, работа над ошибками 2">
+      <option name="closed" value="true" />
+      <created>1733345097019</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733345097019</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

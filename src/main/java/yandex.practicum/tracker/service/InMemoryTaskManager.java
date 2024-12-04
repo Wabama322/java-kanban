@@ -129,13 +129,14 @@ public class InMemoryTaskManager implements ITaskManager {
             int id = generateId();
             subtask.setId(id);
             subtasks.put(subtask.getId(), subtask);
-            sortedTask.add(subtask);
             epic.getSubtasks().add(subtask.getId());
             changeEpicStatus(epic);
             epic.setDuration(getEpicDuration(epic));
             epic.setStartTime(getEpicStartTime(epic));
             epic.setEndTime(getEpicEndTime(epic));
-            sortedTask.add(subtask);
+            if (validateTaskStartTime(subtask)) {
+                sortedTask.add(subtask);
+            }
         }
         return subtask;
     }
