@@ -28,7 +28,7 @@ public class InMemoryTaskManagerTest {
     Subtask subtaskTwo = taskManager.createSubtask(new Subtask("nameSubTwo", "description", 4, TaskStatus.NEW,
             epicOne.getId(), LocalDateTime.of(2021,11,27,22,0), Duration.ofHours(1)));
     Subtask subtaskThree = taskManager.createSubtask(new Subtask("nameSubThree", "description", 5, TaskStatus.NEW,
-            epicOne.getId()));
+            epicOne.getId(),LocalDateTime.of(2022,11,27,22,0), Duration.ofHours(1)));
 
     @Test
     public void deleteEpicAndSubtaskHistory() {
