@@ -28,8 +28,6 @@ import static yandex.practicum.model.TaskStatus.IN_PROGRESS;
 import static yandex.practicum.model.TaskStatus.NEW;
 
 
-// SOS не работает тест shouldLoadFewTasks
-// Так же не могу понять почему не распарсивается Duration
 class FileBackedTaskManagerTest {
     File tempFile;
     FileBackedTaskManager fileManager;
@@ -56,6 +54,7 @@ class FileBackedTaskManagerTest {
         createTasks();
         assertEquals(1, fileManager.getAllEpics().size());
         assertEquals(2, fileManager.getAllTasks().size());
+        assertEquals(1, fileManager.getAllSubtasks().size());
         int count = 0;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(tempFile.toString()))) {
@@ -72,28 +71,28 @@ class FileBackedTaskManagerTest {
         } catch (IOException e) {
             throw new SaveManagerException("Ошибка чтения файла...");
         }
-        assertEquals(3, count);
+        assertEquals(4, count);
     }
 
     @Test
     public void shouldLoadFewTasks() {
         createTasks();
         Assertions.assertEquals(1, fileManager.getAllEpics().size());
-        // Assertions.assertEquals(2, fileManager.getAllTasks().size());
-        // Assertions.assertEquals(1, fileManager.getAllSubtasks().size());
+        Assertions.assertEquals(2, fileManager.getAllTasks().size());
+        Assertions.assertEquals(1, fileManager.getAllSubtasks().size());
 
         File copyFile = createCopyFile(tempFile);
-        //fileManager.removeAllTasks();
+        fileManager.removeAllTasks();
         fileManager.removeAllEpic();
-        // fileManager.removeAllSubtasks();
+        fileManager.removeAllSubtasks();
         Assertions.assertEquals(0, fileManager.getAllEpics().size());
-        //Assertions.assertEquals(0, fileManager.getAllTasks().size());
-        // Assertions.assertEquals(0, fileManager.getAllSubtasks().size());
+        Assertions.assertEquals(0, fileManager.getAllTasks().size());
+        Assertions.assertEquals(0, fileManager.getAllSubtasks().size());
 
         fileManager.loadFromFile(copyFile);
         Assertions.assertEquals(1, fileManager.getAllEpics().size());
-        //Assertions.assertEquals(2, fileManager.getAllTasks().size());
-        // Assertions.assertEquals(1, fileManager.getAllSubtasks().size());
+        Assertions.assertEquals(2, fileManager.getAllTasks().size());
+        Assertions.assertEquals(1, fileManager.getAllSubtasks().size());
     }
 
     private void createTasks() {

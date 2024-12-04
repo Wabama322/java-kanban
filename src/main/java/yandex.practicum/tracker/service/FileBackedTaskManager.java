@@ -101,8 +101,9 @@ public class FileBackedTaskManager extends InMemoryTaskManager implements ITaskM
     }
 
     public void save() {
+        final String HEADER = "id,type,name,status,description,duration,startTime,epic, endTime\n";
         try (FileWriter writer = new FileWriter(file.toFile(), false)) {
-            writer.write("id,type,name,status,description,duration,startTime,epic, endTime\n");
+            writer.write(HEADER);
             for (Integer key : tasks.keySet()) {
                 writer.write(Converter.taskToString(tasks.get(key)) + "\n");
             }

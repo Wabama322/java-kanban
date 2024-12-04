@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="8 спринт">
-      <change afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/exception/LoadFromFileException.java" afterDir="false" />
+    <list default="true" id="bb5fada8-22f2-44e2-84d1-0b7883cb7fc1" name="Changes" comment="8 спринт, работа над ошибками">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/model/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/ITaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/ITaskManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban-main/yandex/practicum/tracker/service/InMemoryTaskManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/model/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yandex.practicum/tracker/service/InMemoryTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/yandex.practicum/service/InMemoryTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +96,7 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
+  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest.shouldSaveFewTasks">
     <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -113,22 +108,6 @@
       <option name="PACKAGE_NAME" value="yandex.practicum.service" />
       <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileBackedTaskManagerTest.saveAndLoadOfEmptyFilesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yandex.practicum.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
-      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.FileBackedTaskManagerTest" />
-      <option name="METHOD_NAME" value="saveAndLoadOfEmptyFilesTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,6 +144,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InMemoryHistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yandex.practicum.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="yandex.practicum.service" />
+      <option name="MAIN_CLASS_NAME" value="yandex.practicum.service.InMemoryHistoryManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <extension name="coverage">
@@ -182,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest.shouldLoadFewTasks" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest.shouldSaveFewTasks" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest.saveAndLoadOfEmptyFilesTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.shouldLoadFewTasks" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732727248034</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="8 спринт, работа над ошибками">
+      <option name="closed" value="true" />
+      <created>1733237631043</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733237631043</updated>
+    </task>
+    <task id="LOCAL-00006" summary="8 спринт, работа над ошибками">
+      <option name="closed" value="true" />
+      <created>1733237943372</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733237943372</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,17 +284,7 @@
     <MESSAGE value="6 спринт исправление замечаний ревью." />
     <MESSAGE value="6 спринт исправление замечаний по удалению из истории" />
     <MESSAGE value="8 спринт" />
-    <option name="LAST_COMMIT_MESSAGE" value="8 спринт" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/java/yandex.practicum/service/FileBackedTaskManagerTest.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="8 спринт, работа над ошибками" />
+    <option name="LAST_COMMIT_MESSAGE" value="8 спринт, работа над ошибками" />
   </component>
 </project>

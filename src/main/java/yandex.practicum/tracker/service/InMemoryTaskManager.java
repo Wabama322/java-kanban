@@ -125,7 +125,7 @@ public class InMemoryTaskManager implements ITaskManager {
     public Subtask createSubtask(Subtask subtask) {
         validateTaskStartTime(subtask);
         Epic epic = epics.get(subtask.getEpicId());
-        if (epic == null) {
+        if (epic != null) {
             int id = generateId();
             subtask.setId(id);
             subtasks.put(subtask.getId(), subtask);
@@ -263,9 +263,13 @@ public class InMemoryTaskManager implements ITaskManager {
     public LocalDateTime getEpicStartTime(Epic epic) {
         List<Subtask> subtasks2 = getSubtaskList(epic);
         LocalDateTime startTime = null;
-        for (Subtask subtask : subtasks2) {
+        if (subtasks2 == null || subtasks2.isEmpty()) {
+            return null;
+        }
+        List<Subtask> subtasksCopy = new ArrayList<>(subtasks2);
+        for (Subtask subtask : subtasksCopy) {
             LocalDateTime currentStartTime = subtask.getStartTime();
-            if (startTime != null || currentStartTime.isBefore(startTime)) {
+            if (startTime != null && currentStartTime.isBefore(startTime)) {
                 startTime = currentStartTime;
             }
         }
@@ -284,7 +288,7 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public TreeSet<Task> getPrioritizedTasks() {
-        return sortedTask;
+        return new TreeSet<>(sortedTask);
     }
 
     private boolean validateTaskStartTime(Task task) {
