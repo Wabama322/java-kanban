@@ -8,22 +8,26 @@ import yandex.practicum.model.TaskStatus;
 import yandex.practicum.tracker.service.ITaskManager;
 import yandex.practicum.tracker.service.Managers;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InMemoryTaskManagerTest {
+
     ITaskManager taskManager = Managers.getDefault();
 
-    Task taskOne = taskManager.createTask(new Task("nameTaskOne", "description", 1, TaskStatus.NEW));
+    Task taskOne = taskManager.createTask(new Task("nameTaskOne", "description", 1, TaskStatus.NEW,
+            LocalDateTime.of(2022,11,27,22,0), Duration.ofHours(1)));
     Epic epicOne = taskManager.createEpic(new Epic("nameEpicOne", "description", 2, TaskStatus.NEW, new ArrayList<>()));
     Subtask subtaskOne = taskManager.createSubtask(new Subtask("nameSubOne", "description", 3, TaskStatus.NEW,
-            epicOne.getId()));
+            epicOne.getId(), LocalDateTime.of(2023,11,27,23,0), Duration.ofHours(1)));
     Subtask subtaskTwo = taskManager.createSubtask(new Subtask("nameSubTwo", "description", 4, TaskStatus.NEW,
-            epicOne.getId()));
+            epicOne.getId(), LocalDateTime.of(2021,11,27,22,0), Duration.ofHours(1)));
     Subtask subtaskThree = taskManager.createSubtask(new Subtask("nameSubThree", "description", 5, TaskStatus.NEW,
-            epicOne.getId()));
+            epicOne.getId(),LocalDateTime.of(2022,11,27,22,0), Duration.ofHours(1)));
 
     @Test
     public void deleteEpicAndSubtaskHistory() {

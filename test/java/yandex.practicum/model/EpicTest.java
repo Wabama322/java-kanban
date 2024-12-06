@@ -6,10 +6,6 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import yandex.practicum.tracker.service.InMemoryTaskManager;
-
-import yandex.practicum.tracker.service.Managers;
-
 class EpicTest {
 
     @Test

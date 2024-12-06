@@ -1,28 +1,42 @@
 package yandex.practicum.model;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 public class Subtask extends Task {
 
-    private int epicId;
+    private Integer epic;
 
-    public Subtask(String nameTask, String description, int id, TaskStatus status, int epicId) {
+    public Subtask(String nameTask, String description, int id, TaskStatus status, Integer epic) {
         super(nameTask, description, id, status);
-        this.epicId = epicId;
+        this.epic = epic;
+    }
+
+    public Subtask(String nameTask, String description, int id, TaskStatus status, Integer epic,
+                   LocalDateTime startTime, Duration duration) {
+        super(nameTask, description, id, status, startTime, duration);
+        this.epic = epic;
     }
 
     public Subtask() {
     }
 
-    public int getEpicId() {
-        return this.epicId;
+    public Integer getEpicId() {
+        return epic;
     }
 
-    public void setEpicId(int epicId) {
-        this.epicId = epicId;
+    public void setEpicId(Integer epic) {
+        this.epic = epic;
     }
 
 
     @Override
     public Types getType() {
         return Types.SUBTASK;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + epic;
     }
 }
