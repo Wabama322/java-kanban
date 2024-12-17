@@ -8,7 +8,6 @@ import yandex.practicum.tracker.service.IHistoryManager;
 import yandex.practicum.tracker.service.ITaskManager;
 import yandex.practicum.tracker.service.Managers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +19,7 @@ class InMemoryHistoryManagerTest {
 
     Task taskOne = taskManager.createTask(new Task("TaskOne", "DescrTaskOne", 0, TaskStatus.DONE));
     Task taskTwo = taskManager.createTask(new Task("TaskTwo", "DescrTaskTwo", 0, TaskStatus.NEW));
-    Epic epicOne = taskManager.createEpic(new Epic("EpicOne", "DescrEpicOne", 0, TaskStatus.NEW, new ArrayList<>()));
+    Epic epicOne = taskManager.createEpic(new Epic("EpicOne", "DescrEpicOne"));
 
     @Test
     public void addToHistory() {

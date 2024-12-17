@@ -1,11 +1,11 @@
 package yandex.practicum.exception;
 
 public class TaskValidationException extends RuntimeException {
-    public TaskValidationException(String massage) {
-        super(massage);
+    public TaskValidationException(String message) {
+        super(message);
     }
 
-    public TaskValidationException(String massage, Throwable cause) {
-        super(massage, cause);
+    public TaskValidationException(String message, Throwable cause) {
+        super(message, cause);
     }
 }
