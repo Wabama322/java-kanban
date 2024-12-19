@@ -1,6 +1,6 @@
 package yandex.practicum.tracker.service;
 
-import yandex.practicum.exception.TaskValidationException;
+import yandex.practicum.exception.ValidationException;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
@@ -310,7 +310,7 @@ public class InMemoryTaskManager implements ITaskManager {
                             && !(startTime.isAfter(task1.getEndTime()) || startTime.isEqual(task1.getEndTime()));
                 });
         if (anyMatch) {
-            throw new TaskValidationException("Обнаружено пересечение времени задач...");
+            throw new ValidationException("Обнаружено пересечение времени задач...");
         }
         return anyMatch;
     }
