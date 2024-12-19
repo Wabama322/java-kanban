@@ -1,6 +1,6 @@
 package yandex.practicum.tracker.service;
 
-import yandex.practicum.exception.TaskValidationException;
+import yandex.practicum.exception.ValidationException;
 import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
@@ -129,13 +129,15 @@ public class InMemoryTaskManager implements ITaskManager {
             int id = generateId();
             subtask.setId(id);
             subtasks.put(subtask.getId(), subtask);
-            epic.getSubtasks().add(subtask.getId());
-            changeEpicStatus(epic);
-            epic.setDuration(getEpicDuration(epic));
-            epic.setStartTime(getEpicStartTime(epic));
-            epic.setEndTime(getEpicEndTime(epic));
-            if (validateTaskStartTime(subtask)) {
-                sortedTask.add(subtask);
+            if (epic.getSubtasks() != null) {
+                epic.getSubtasks().add(subtask.getId());
+                changeEpicStatus(epic);
+                epic.setDuration(getEpicDuration(epic));
+                epic.setStartTime(getEpicStartTime(epic));
+                epic.setEndTime(getEpicEndTime(epic));
+                if (validateTaskStartTime(subtask)) {
+                    sortedTask.add(subtask);
+                }
             }
         }
         return subtask;
@@ -174,9 +176,11 @@ public class InMemoryTaskManager implements ITaskManager {
     public void removeEpicById(int id) {
         Epic epic = epics.get(id);
         List<Integer> epicSubtasks = epic.getSubtasks();
-        for (Integer subtask : epicSubtasks) {
-            subtasks.remove(subtask);
-            historyManager.remove(subtask);
+        if (epicSubtasks != null) {
+            epicSubtasks.forEach(subtask -> {
+                subtasks.remove(subtask);
+                historyManager.remove(subtask);
+            });
         }
         epics.remove(id);
         historyManager.remove(id);
@@ -302,11 +306,11 @@ public class InMemoryTaskManager implements ITaskManager {
                     LocalDateTime startTime = task.getStartTime();
                     LocalDateTime endTime = task.getEndTime();
 
-                    return !(endTime.isBefore(task1.getStartTime()) || endTime.equals(task1.getStartTime()))
-                            && !(startTime.isAfter(task1.getEndTime()) || startTime.equals(task1.getEndTime()));
+                    return !(endTime.isBefore(task1.getStartTime()) || endTime.isEqual(task1.getStartTime()))
+                            && !(startTime.isAfter(task1.getEndTime()) || startTime.isEqual(task1.getEndTime()));
                 });
         if (anyMatch) {
-            throw new TaskValidationException("Обнаружено пересечение времени задач...");
+            throw new ValidationException("Обнаружено пересечение времени задач...");
         }
         return anyMatch;
     }

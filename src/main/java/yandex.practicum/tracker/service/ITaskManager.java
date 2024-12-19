@@ -4,10 +4,12 @@ import yandex.practicum.model.Epic;
 import yandex.practicum.model.Subtask;
 import yandex.practicum.model.Task;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.TreeSet;
 
 public interface ITaskManager {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH-mm");
 
     List<Task> getAllTasks();
 
@@ -52,4 +54,10 @@ public interface ITaskManager {
     List<Task> getHistory();
 
     TreeSet<Task> getPrioritizedTasks();
+
+    static DateTimeFormatter getDateTimeFormatter() {
+        return formatter;
+    }
+
 }
+

@@ -10,6 +10,7 @@ import yandex.practicum.tracker.service.Managers;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +20,10 @@ public class InMemoryTaskManagerTest {
 
     ITaskManager taskManager = Managers.getDefault();
 
-    Task taskOne = taskManager.createTask(new Task("nameTaskOne", "description", 1, TaskStatus.NEW,
-            LocalDateTime.of(2022,11,27,22,0), Duration.ofHours(1)));
-    Epic epicOne = taskManager.createEpic(new Epic("nameEpicOne", "description", 2, TaskStatus.NEW, new ArrayList<>()));
+    Task taskOne = taskManager.createTask(new Task("nameTask1", "description", 1, TaskStatus.NEW,
+            Duration.ofMinutes(10), LocalDateTime.of(2023, Month.JUNE, 25, 12, 0)));
+    Epic epicOne = taskManager.createEpic(new Epic("nameEpic1", "description", 3,
+            TaskStatus.IN_PROGRESS, new ArrayList<>()));
     Subtask subtaskOne = taskManager.createSubtask(new Subtask("nameSubOne", "description", 3, TaskStatus.NEW,
             epicOne.getId(), LocalDateTime.of(2023,11,27,23,0), Duration.ofHours(1)));
     Subtask subtaskTwo = taskManager.createSubtask(new Subtask("nameSubTwo", "description", 4, TaskStatus.NEW,

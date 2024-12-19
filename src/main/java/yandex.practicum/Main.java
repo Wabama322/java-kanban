@@ -7,6 +7,9 @@ import yandex.practicum.model.TaskStatus;
 import yandex.practicum.tracker.service.ITaskManager;
 import yandex.practicum.tracker.service.InMemoryTaskManager;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,21 +20,25 @@ public class Main {
         System.out.println("Поехали!");
         ITaskManager taskManager = new InMemoryTaskManager();
 
-        Task taskOne = new Task("Сделать уборку дома", "пропылесосить, протереть пыль", 0, TaskStatus.DONE);
-        Task taskTwo = new Task("Почитать книгу", "дойти до следующей главы", 1, TaskStatus.NEW);
+        Task taskOne = new Task("nameTask1", "description", 1, TaskStatus.NEW,
+                Duration.ofMinutes(10), LocalDateTime.of(2023, Month.JUNE, 25, 12, 0));
+        Task taskTwo = new Task("nameTask2", "description", 2, TaskStatus.NEW,
+                Duration.ofMinutes(10), LocalDateTime.of(2023, Month.JUNE, 26, 12, 0));
 
-        Epic epicOne = new Epic("Подготовка к отпуску", "бронирование билетов и отеля", 2,
+        Epic epicOne = new Epic("nameEpic1", "description", 3,
                 TaskStatus.IN_PROGRESS, new ArrayList<>());
-        Subtask subtaskOne = new Subtask("Шоппинг", "покупка необходимых вещей и сбор аптечки", 5,
-                TaskStatus.DONE, 2);
-        Subtask subtaskTwo = new Subtask("Сбор чемодана", "сложить вещи и документы", 7, TaskStatus.IN_PROGRESS, 2);
-        Epic epicTwo = new Epic("Купить продукты домой", "составить список покупок", 3,
-                TaskStatus.NEW, new ArrayList<>());
-        Subtask subtaskThree = new Subtask("Зайти после работы в магазин", "купить продукты согласно списка", 8,
-                TaskStatus.NEW, 3);
-        Subtask subtaskFour = new Subtask();
-        Epic epicThree = new Epic("Сходить в библиотеку", "сдать книгу", 10,
-                TaskStatus.NEW, new ArrayList<>());
+        Subtask subtaskOne = new Subtask("nameSub1", "description", 4, TaskStatus.IN_PROGRESS,
+                epicOne.getId());
+        Subtask subtaskTwo = new Subtask("nameSub2", "description", 5, TaskStatus.NEW,
+                epicOne.getId());
+        Epic epicTwo = new Epic("nameEpic2", "description", 6,
+                TaskStatus.IN_PROGRESS, new ArrayList<>());
+        Subtask subtaskThree = new Subtask("nameSub3", "description", 7, TaskStatus.IN_PROGRESS,
+                epicTwo.getId());
+        Subtask subtaskFour = new Subtask("nameSub4", "description", 8, TaskStatus.NEW,
+                epicTwo.getId());
+        Epic epicThree = new Epic("nameEpic3", "description", 9,
+                TaskStatus.IN_PROGRESS, new ArrayList<>());
 
         Task createdTaskOne = taskManager.createTask(taskOne);
         Task createdTaskTwo = taskManager.createTask(taskTwo);

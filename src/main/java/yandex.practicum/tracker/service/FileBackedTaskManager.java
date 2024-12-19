@@ -7,6 +7,7 @@ import yandex.practicum.model.Task;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
 import static yandex.practicum.model.Types.EPIC;
@@ -136,7 +137,9 @@ public class FileBackedTaskManager extends InMemoryTaskManager implements ITaskM
                     Subtask subtask = (Subtask) task;
                     subtasks.put(task.getId(), subtask);
                     Epic epic = epics.get(subtask.getEpicId());
-                    epic.getSubtasks().add(subtask.getId());
+                    if (epic.getSubtasks() == null) {
+                        epic.setSubtasks(new ArrayList<>());
+                    }
                 }
 
                 if (task.getId() > maxId) {

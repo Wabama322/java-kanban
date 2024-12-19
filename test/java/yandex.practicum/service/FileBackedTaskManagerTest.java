@@ -17,14 +17,12 @@ import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.isNull;
 import static org.junit.Assert.assertThrows;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertNotNull;
-import static yandex.practicum.model.TaskStatus.IN_PROGRESS;
 import static yandex.practicum.model.TaskStatus.NEW;
 
 
@@ -90,9 +88,10 @@ class FileBackedTaskManagerTest {
         Assertions.assertEquals(0, fileManager.getAllSubtasks().size());
 
         fileManager.loadFromFile(copyFile);
-        Assertions.assertEquals(1, fileManager.getAllEpics().size());
         Assertions.assertEquals(2, fileManager.getAllTasks().size());
         Assertions.assertEquals(1, fileManager.getAllSubtasks().size());
+        Assertions.assertEquals(1, fileManager.getAllEpics().size());
+
     }
 
     private void createTasks() {
@@ -101,7 +100,7 @@ class FileBackedTaskManagerTest {
         Task taskTwo = new Task("TaskTwo", "DescrTaskTwo", 2, NEW, LocalDateTime.of(2024, Month.NOVEMBER, 25, 12, 1),
                 Duration.ofMinutes(39));
 
-        Epic epicOne = new Epic("EpicOne", "DescrEpicOne", 3, IN_PROGRESS, new ArrayList<>());
+        Epic epicOne = new Epic("EpicOne", "DescrEpicOne");
         fileManager.createEpic(epicOne);
         List<Epic> allEpics = fileManager.getAllEpics();
         Subtask subtaskOne = new Subtask("SubtaskOne", "DescrSubOne", 5, NEW, allEpics.get(0).getId(),
